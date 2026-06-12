@@ -758,6 +758,79 @@
   </div>
 </div>
 
+<!-- 종루이코리아 회고 -->
+<div class="retro-wrap" id="retro-jlk">
+  <div class="retro-header">
+    <span class="retro-badge">Retrospective</span>
+    <span class="retro-title">종루이코리아 MES — 트러블슈팅 & 배운 점</span>
+  </div>
+
+  <div class="retro-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <!-- Trouble 1 -->
+    <div class="retro-card">
+      <p class="retro-card-num">Trouble 01</p>
+      <h3 class="retro-card-title">재고실사 시 전 기능 동시 중지 처리</h3>
+      <div class="retro-block">
+        <p class="retro-block-label problem">문제</p>
+        <p>재고실사 진행 중 다른 사용자가 입출고 등 기능을 계속 사용하면 재고 수치가 변경되어 실사 데이터의 정합성이 깨지는 문제 발생.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label cause">원인</p>
+        <p>실사 진행 상태를 단순 플래그로만 관리해 동시 접근을 완전히 차단하지 못하고, 이미 작업 중인 사용자에게 아무런 안내가 없었음.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label solution">해결</p>
+        <p>실사 시작 전 진행 중인 작업 여부를 체크하고, 사용 중인 사용자가 있을 경우 관리자에게 경고 팝업을 표시. 강제 시작 확인 시 실사 상태 플래그를 DB에 저장하고, 이후 모든 기능 요청에서 플래그를 조회하여 차단. 차단된 사용자에게는 "현재 재고실사가 진행 중입니다" 안내 메시지를 표시.</p>
+      </div>
+    </div>
+
+    <!-- Trouble 2 -->
+    <div class="retro-card">
+      <p class="retro-card-num">Trouble 02</p>
+      <h3 class="retro-card-title">SPC 관리도 이상 데이터 탐지 로직</h3>
+      <div class="retro-block">
+        <p class="retro-block-label problem">문제</p>
+        <p>데이터가 누적될수록 SPC 관리도 차트 로딩이 느려지고, UCL/LCL 계산값이 표본 크기에 따라 다른 관리 계수(A2, D3, D4)를 반영하지 못해 오차가 발생.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label cause">원인</p>
+        <p>전체 데이터를 한 번에 로드하는 쿼리 구조와 관리 계수를 코드에 고정값으로 하드코딩한 것이 원인.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label solution">해결</p>
+        <p>최근 N개 데이터만 조회하는 쿼리로 변경해 로딩 성능을 개선하고, 표본 크기별 관리 계수를 별도 테이블로 분리하여 정확한 UCL/LCL 계산을 적용.</p>
+      </div>
+    </div>
+
+    <!-- Trouble 3 -->
+    <div class="retro-card">
+      <p class="retro-card-num">Trouble 03</p>
+      <h3 class="retro-card-title">파레트 할당 로직 복잡도</h3>
+      <div class="retro-block">
+        <p class="retro-block-label problem">문제</p>
+        <p>여러 품목을 혼재 적재할 때 수량이 초과되거나 비효율적으로 분배되어 파레트 공간이 낭비되는 문제 발생.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label cause">원인</p>
+        <p>품목마다 적재 기준(규격, 무게, 단위)이 다른데도 동일한 기준을 일괄 적용하는 단순 로직으로 처리하고 있었음.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label solution">해결</p>
+        <p>품목별 적재 기준을 마스터 테이블로 분리하고, 혼재 적재 시 각 품목의 기준을 참조해 최적 배분을 계산하는 로직으로 개선.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 배운 점 -->
+  <div class="retro-learned">
+    <div class="retro-learned-icon">💡</div>
+    <div>
+      <p class="retro-learned-title">배운 점</p>
+      <p>제조 현장의 데이터는 실시간성과 정합성이 동시에 요구된다는 것을 체감했다. 단순 CRUD 구현에서 나아가, 동시성 제어·통계 계산·물류 최적화처럼 도메인 지식이 로직 설계에 직접 영향을 미치는 경험을 쌓을 수 있었다. 기능 개발 전에 업무 흐름을 먼저 파악하는 것이 얼마나 중요한지 배웠다.</p>
+    </div>
+  </div>
+</div>
+
 <!-- 깨끗한나라 회고 -->
 <div class="retro-wrap" id="retro-kkn">
   <div class="retro-header">
