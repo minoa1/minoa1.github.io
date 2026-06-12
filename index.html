@@ -430,7 +430,7 @@
       <h3 class="retro-card-title">SPC 관리도 이상 데이터 탐지 로직</h3>
       <div class="retro-block">
         <p class="retro-block-label problem">문제</p>
-        <p>데이터가 누적될수록 SPC 관리도 차트 로딩이 느려지고, UCL/LCL 계산값이 표본 크기에 따라 다른 관리 계수(A2, D3, D4)를 반영하지 못해 오차가 발생.</p>
+        <p>데이터가 누적될수록 SPC 관리도 차트 로딩이 느려지고, UCL/LCL 계산값이 표본 크기에 따라 다른 관리 계수를 반영하지 못해 오차가 발생.</p>
       </div>
       <div class="retro-block">
         <p class="retro-block-label cause">원인</p>
@@ -438,7 +438,7 @@
       </div>
       <div class="retro-block">
         <p class="retro-block-label solution">해결</p>
-        <p>최근 N개 데이터만 조회하는 쿼리로 변경해 로딩 성능을 개선하고, 표본 크기별 관리 계수를 별도 테이블로 분리하여 정확한 UCL/LCL 계산을 적용.</p>
+        <p>최근 N개 데이터만 조회하는 쿼리로 변경, 날짜별, 제품별 등 조건을 추가해 로딩 성능을 개선하고, 표본 크기별 관리 계수를 별도 테이블로 분리하여 정확한 UCL/LCL 계산을 적용.</p>
       </div>
     </div>
 
@@ -853,11 +853,11 @@
       </div>
       <div class="retro-block">
         <p class="retro-block-label cause">원인</p>
-        <p>인증 토큰 검증은 정상적으로 수행되고 있었으나, 권한이 필요한 경로에 대한 접근 허용(permit) 설정이 라우팅 구성에서 누락되어 있었음.</p>
+        <p>인증 토큰 검증은 정상적으로 수행되고 있었으나, 권한이 필요한 경로에 대한 접근 허용 설정이 라우팅 구성에서 누락되어 있었음.</p>
       </div>
       <div class="retro-block">
         <p class="retro-block-label solution">해결</p>
-        <p>라우팅 및 권한 설정 구조를 전면 점검하고, 페이지별 접근 정책을 명확하게 재정의하여 적용. 단순 로그인 구현보다 권한 관리가 서비스 보안에 핵심적인 요소임을 인식.</p>
+        <p>라우팅 및 권한 설정 구조를 수정하고, 페이지별 접근 정책을 적용.</p>
       </div>
     </div>
 
@@ -867,11 +867,11 @@
       <h3 class="retro-card-title">KCP 본인인증 JSP → Vue 전환 및 팝업 구조 개선</h3>
       <div class="retro-block">
         <p class="retro-block-label problem">문제</p>
-        <p>KCP 본인인증은 JSP 기반 예제 코드를 제공하고 있었으나 프로젝트는 Vue.js 환경. 기존 예제를 그대로 적용할 수 없었고, 부모 페이지에서 인증 창을 직접 제어하는 것도 불가능했음.</p>
+        <p>KCP 본인인증은 JSP 기반 예제 코드를 제공하고 있었으나 프로젝트는 Vue를 사용. 기존 예제를 그대로 적용할 수 없었고, 부모 페이지에서 인증 창을 불러오는것이 불가능했음.</p>
       </div>
       <div class="retro-block">
         <p class="retro-block-label solution">해결</p>
-        <p>인증 요청 및 결과 처리 흐름을 Vue 컴포넌트 구조에 맞게 재구성. 별도의 외부 중간 페이지를 생성하여 해당 페이지에서 실제 KCP 인증 자식 창을 호출하는 방식으로 팝업 구조를 개선.</p>
+        <p>인증 요청 로직을 Vue 컴포넌트 구조에 맞게 재구성. 별도의 외부 중간 페이지를 생성하여 해당 페이지에서 실제 KCP 인증 자식 창을 호출하는 방식으로 개선.</p>
       </div>
     </div>
   </div>
