@@ -377,106 +377,159 @@
     <div class="project-card reverse">
       <div class="card-visual">
         <svg class="mockup" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
-          <rect width="380" height="260" fill="#0d1424"/>
-          <rect width="380" height="36" fill="#111e34"/>
-          <circle cx="16" cy="18" r="5" fill="#f87171" opacity=".7"/>
-          <circle cx="30" cy="18" r="5" fill="#fbbf24" opacity=".7"/>
-          <circle cx="44" cy="18" r="5" fill="#34d399" opacity=".7"/>
-          <text x="170" y="23" font-size="9" fill="#60728f" text-anchor="middle" font-family="sans-serif">OMS — Login &amp; Auth</text>
+          <!-- 브라우저 외곽 -->
+          <rect width="380" height="260" rx="8" fill="#2a2a2a"/>
+          <!-- 브라우저 탭바 -->
+          <rect width="380" height="28" rx="8" fill="#3a3a3a"/>
+          <rect y="14" width="380" height="14" fill="#3a3a3a"/>
+          <circle cx="14" cy="14" r="4" fill="#ff5f57"/>
+          <circle cx="26" cy="14" r="4" fill="#ffbd2e"/>
+          <circle cx="38" cy="14" r="4" fill="#28c840"/>
+          <!-- 탭 -->
+          <rect x="54" y="6" width="110" height="16" rx="4" fill="#ffffff"/>
+          <text x="109" y="17" font-size="6" fill="#333" text-anchor="middle" font-family="sans-serif">깨끗한나라 OMS</text>
+          <!-- 주소창 -->
+          <rect x="172" y="8" width="170" height="12" rx="6" fill="#4a4a4a"/>
+          <text x="257" y="17" font-size="6" fill="#aaa" text-anchor="middle" font-family="sans-serif">oms.kleannara.co.kr/order/list</text>
 
-          <!-- ── Login form (left half) ── -->
-          <!-- login card -->
-          <rect x="14" y="44" width="170" height="206" rx="8" fill="#131f35"/>
-          <text x="99" y="66" font-size="9" fill="#e8edf5" text-anchor="middle" font-family="sans-serif" font-weight="bold">OMS 로그인</text>
-          <text x="99" y="78" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">깨끗한나라 주문관리시스템</text>
+          <!-- 페이지 전체 배경 -->
+          <rect x="0" y="28" width="380" height="232" fill="#f4f6f9"/>
 
-          <!-- email field -->
-          <text x="22" y="96" font-size="6" fill="#60728f" font-family="sans-serif">아이디</text>
-          <rect x="22" y="100" width="154" height="16" rx="4" fill="#0f1d32" stroke="#1e3050" stroke-width="1"/>
-          <text x="30" y="112" font-size="6.5" fill="#3a5070" font-family="sans-serif">user@kkn.co.kr</text>
+          <!-- 상단 헤더 -->
+          <rect x="0" y="28" width="380" height="32" fill="#1565c0"/>
+          <!-- 로고/회사명 -->
+          <rect x="8" y="34" width="6" height="6" rx="1" fill="#ffffff" opacity=".9"/>
+          <rect x="8" y="43" width="6" height="3" rx="1" fill="#ffffff" opacity=".6"/>
+          <text x="20" y="44" font-size="8.5" fill="#ffffff" font-family="sans-serif" font-weight="bold">깨끗한나라</text>
+          <text x="63" y="44" font-size="7" fill="rgba(255,255,255,.7)" font-family="sans-serif">주문관리시스템</text>
+          <!-- 헤더 우측 -->
+          <text x="290" y="44" font-size="6.5" fill="rgba(255,255,255,.8)" font-family="sans-serif">관리자 홍길동</text>
+          <rect x="340" y="36" width="32" height="14" rx="3" fill="rgba(255,255,255,.15)"/>
+          <text x="356" y="45" font-size="6" fill="#fff" text-anchor="middle" font-family="sans-serif">로그아웃</text>
 
-          <!-- pw field -->
-          <text x="22" y="126" font-size="6" fill="#60728f" font-family="sans-serif">비밀번호</text>
-          <rect x="22" y="130" width="154" height="16" rx="4" fill="#0f1d32" stroke="#38bdf8" stroke-width="1"/>
-          <text x="30" y="142" font-size="6.5" fill="#8899bb" font-family="sans-serif">●●●●●●●●</text>
+          <!-- GNB 메뉴바 -->
+          <rect x="0" y="60" width="380" height="22" fill="#1976d2"/>
+          <text x="14" y="75" font-size="6.5" fill="#fff" font-family="sans-serif" font-weight="bold">주문관리</text>
+          <rect x="0" y="60" width="52" height="22" fill="rgba(0,0,0,.2)"/>
+          <text x="68" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">재고조회</text>
+          <text x="118" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">프로모션</text>
+          <text x="170" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">VOC관리</text>
+          <text x="218" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">권한관리</text>
 
-          <!-- login btn -->
-          <rect x="22" y="154" width="154" height="18" rx="5" fill="#38bdf8"/>
-          <text x="99" y="166" font-size="7.5" fill="#071522" text-anchor="middle" font-family="sans-serif" font-weight="bold">로그인</text>
+          <!-- 본문 영역 -->
+          <!-- 브레드크럼 + 페이지 타이틀 -->
+          <text x="12" y="94" font-size="5.5" fill="#999" font-family="sans-serif">주문관리 &gt; 주문목록</text>
+          <text x="12" y="105" font-size="9" fill="#222" font-family="sans-serif" font-weight="bold">주문 목록</text>
 
-          <!-- divider -->
-          <line x1="22" y1="182" x2="176" y2="182" stroke="#1e3050" stroke-width="1"/>
-          <text x="99" y="179" font-size="6" fill="#1e3050" text-anchor="middle" font-family="sans-serif" font-weight="bold">  또는  </text>
+          <!-- 검색 필터 영역 -->
+          <rect x="8" y="110" width="364" height="28" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+          <!-- 기간 -->
+          <text x="16" y="121" font-size="5.5" fill="#666" font-family="sans-serif">기간</text>
+          <rect x="30" y="114" width="58" height="12" rx="2" fill="#f9f9f9" stroke="#ddd" stroke-width="1"/>
+          <text x="59" y="122" font-size="5.5" fill="#aaa" text-anchor="middle" font-family="sans-serif">2024-08-01</text>
+          <text x="91" y="122" font-size="5.5" fill="#999" font-family="sans-serif">~</text>
+          <rect x="96" y="114" width="58" height="12" rx="2" fill="#f9f9f9" stroke="#ddd" stroke-width="1"/>
+          <text x="125" y="122" font-size="5.5" fill="#aaa" text-anchor="middle" font-family="sans-serif">2025-04-30</text>
+          <!-- 거래처 -->
+          <text x="162" y="121" font-size="5.5" fill="#666" font-family="sans-serif">거래처</text>
+          <rect x="182" y="114" width="60" height="12" rx="2" fill="#f9f9f9" stroke="#ddd" stroke-width="1"/>
+          <text x="212" y="122" font-size="5.5" fill="#bbb" text-anchor="middle" font-family="sans-serif">전체</text>
+          <!-- 상태 -->
+          <text x="248" y="121" font-size="5.5" fill="#666" font-family="sans-serif">상태</text>
+          <rect x="264" y="114" width="44" height="12" rx="2" fill="#f9f9f9" stroke="#ddd" stroke-width="1"/>
+          <text x="286" y="122" font-size="5.5" fill="#bbb" text-anchor="middle" font-family="sans-serif">전체</text>
+          <!-- 조회 버튼 -->
+          <rect x="314" y="114" width="30" height="12" rx="3" fill="#1565c0"/>
+          <text x="329" y="122" font-size="5.5" fill="#fff" text-anchor="middle" font-family="sans-serif">조회</text>
+          <!-- 엑셀 버튼 -->
+          <rect x="348" y="114" width="18" height="12" rx="3" fill="#fff" stroke="#1a7a3a" stroke-width="1"/>
+          <text x="357" y="122" font-size="5" fill="#1a7a3a" text-anchor="middle" font-family="sans-serif">엑셀</text>
 
-          <!-- KCP btn -->
-          <rect x="22" y="187" width="154" height="18" rx="5" fill="transparent" stroke="#818cf8" stroke-width="1"/>
-          <text x="99" y="199" font-size="7" fill="#818cf8" text-anchor="middle" font-family="sans-serif">본인인증 (KCP)</text>
+          <!-- 테이블 -->
+          <!-- 헤더 -->
+          <rect x="8" y="141" width="364" height="14" fill="#e8edf5" stroke="#d0d7e3" stroke-width="1"/>
+          <text x="22" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">No</text>
+          <text x="60" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">주문번호</text>
+          <text x="112" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">거래처명</text>
+          <text x="165" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">품목명</text>
+          <text x="218" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">수량</text>
+          <text x="260" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">금액</text>
+          <text x="306" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">주문일</text>
+          <text x="352" y="151" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">상태</text>
 
-          <!-- JWT badge -->
-          <rect x="22" y="214" width="60" height="14" rx="7" fill="rgba(56,189,248,.1)" stroke="rgba(56,189,248,.3)" stroke-width="1"/>
-          <text x="52" y="224" font-size="6" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">JWT Token</text>
-          <rect x="90" y="214" width="86" height="14" rx="7" fill="rgba(52,211,153,.08)" stroke="rgba(52,211,153,.25)" stroke-width="1"/>
-          <text x="133" y="224" font-size="6" fill="#34d399" text-anchor="middle" font-family="sans-serif">● 인증 서버 정상</text>
+          <!-- row 1 -->
+          <rect x="8" y="155" width="364" height="14" fill="#fff" stroke="#eee" stroke-width="1"/>
+          <text x="22" y="164" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">1</text>
+          <text x="60" y="164" font-size="5.5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">ORD-241201</text>
+          <text x="112" y="164" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">홈플러스(주)</text>
+          <text x="165" y="164" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">깨끗한 화장지 30롤</text>
+          <text x="218" y="164" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">1,200</text>
+          <text x="260" y="164" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">3,600,000</text>
+          <text x="306" y="164" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2024-12-01</text>
+          <rect x="332" y="157" width="38" height="10" rx="5" fill="#e8f5e9"/>
+          <text x="351" y="164" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">납품완료</text>
 
-          <!-- ── KCP popup flow (right half) ── -->
-          <text x="200" y="52" font-size="7.5" fill="#818cf8" font-family="sans-serif" font-weight="bold">KCP 본인인증 팝업 구조</text>
+          <!-- row 2 -->
+          <rect x="8" y="169" width="364" height="14" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+          <text x="22" y="178" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2</text>
+          <text x="60" y="178" font-size="5.5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">ORD-241202</text>
+          <text x="112" y="178" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">이마트(주)</text>
+          <text x="165" y="178" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">물티슈 캡형 80매</text>
+          <text x="218" y="178" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">3,000</text>
+          <text x="260" y="178" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">4,500,000</text>
+          <text x="306" y="178" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2024-12-02</text>
+          <rect x="332" y="171" width="38" height="10" rx="5" fill="#fff3e0"/>
+          <text x="351" y="178" font-size="5" fill="#e65100" text-anchor="middle" font-family="sans-serif">처리중</text>
 
-          <!-- Parent page -->
-          <rect x="196" y="58" width="80" height="32" rx="5" fill="#131f35" stroke="#38bdf8" stroke-width="1"/>
-          <text x="236" y="72" font-size="6.5" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">Vue 부모 페이지</text>
-          <text x="236" y="82" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">본인인증 버튼</text>
+          <!-- row 3 -->
+          <rect x="8" y="183" width="364" height="14" fill="#fff" stroke="#eee" stroke-width="1"/>
+          <text x="22" y="192" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">3</text>
+          <text x="60" y="192" font-size="5.5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">ORD-241203</text>
+          <text x="112" y="192" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">롯데마트(주)</text>
+          <text x="165" y="192" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">뽀삐 미용티슈 200매</text>
+          <text x="218" y="192" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">500</text>
+          <text x="260" y="192" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">1,250,000</text>
+          <text x="306" y="192" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2024-12-03</text>
+          <rect x="332" y="185" width="38" height="10" rx="5" fill="#e8f5e9"/>
+          <text x="351" y="192" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">납품완료</text>
 
-          <!-- arrow down -->
-          <line x1="236" y1="90" x2="236" y2="102" stroke="#818cf8" stroke-width="1" stroke-dasharray="2,2"/>
-          <polygon points="231,100 236,108 241,100" fill="#818cf8"/>
+          <!-- row 4 -->
+          <rect x="8" y="197" width="364" height="14" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+          <text x="22" y="206" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">4</text>
+          <text x="60" y="206" font-size="5.5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">ORD-241204</text>
+          <text x="112" y="206" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">GS리테일(주)</text>
+          <text x="165" y="206" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">위생장갑 100매</text>
+          <text x="218" y="206" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">2,400</text>
+          <text x="260" y="206" font-size="5.5" fill="#333" text-anchor="middle" font-family="sans-serif">2,160,000</text>
+          <text x="306" y="206" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2024-12-04</text>
+          <rect x="332" y="199" width="38" height="10" rx="5" fill="#fce4ec"/>
+          <text x="351" y="206" font-size="5" fill="#c62828" text-anchor="middle" font-family="sans-serif">반품접수</text>
 
-          <!-- External page -->
-          <rect x="196" y="108" width="80" height="32" rx="5" fill="#131f35" stroke="#818cf8" stroke-width="1.2"/>
-          <text x="236" y="120" font-size="6.5" fill="#818cf8" text-anchor="middle" font-family="sans-serif">외부 중간 페이지</text>
-          <text x="236" y="130" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">(팝업 제어 담당)</text>
-
-          <!-- arrow right to child -->
-          <line x1="276" y1="124" x2="288" y2="124" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2"/>
-          <polygon points="286,119 294,124 286,129" fill="#fbbf24"/>
-
-          <!-- Child KCP window -->
-          <rect x="294" y="108" width="76" height="46" rx="5" fill="#131f35" stroke="#fbbf24" stroke-width="1"/>
-          <text x="332" y="122" font-size="6.5" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">KCP 인증 창</text>
-          <text x="332" y="132" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">(자식 팝업)</text>
-          <rect x="305" y="138" width="54" height="10" rx="3" fill="rgba(251,191,36,.15)"/>
-          <text x="332" y="146" font-size="5.5" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">JSP → Vue 재구성</text>
-
-          <!-- result callback arrow -->
-          <line x1="332" y1="154" x2="332" y2="168" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
-          <line x1="332" y1="168" x2="236" y2="168" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
-          <line x1="236" y1="168" x2="236" y2="158" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
-          <polygon points="231,158 236,150 241,158" fill="#34d399"/>
-          <text x="290" y="165" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">인증 결과 콜백</text>
-
-          <!-- permission flow -->
-          <text x="200" y="184" font-size="7.5" fill="#38bdf8" font-family="sans-serif" font-weight="bold">권한 설정 구조</text>
-
-          <rect x="196" y="190" width="170" height="56" rx="6" fill="#0f1d32"/>
-          <!-- route table -->
-          <text x="204" y="202" font-size="6" fill="#60728f" font-family="sans-serif">경로</text>
-          <text x="276" y="202" font-size="6" fill="#60728f" font-family="sans-serif">필요 권한</text>
-          <text x="330" y="202" font-size="6" fill="#60728f" font-family="sans-serif">상태</text>
-          <line x1="196" y1="205" x2="366" y2="205" stroke="#1e3050" stroke-width="1"/>
-
-          <text x="204" y="216" font-size="5.5" fill="#8899bb" font-family="sans-serif">/order/**</text>
-          <rect x="270" y="209" width="46" height="9" rx="3" fill="rgba(56,189,248,.1)"/>
-          <text x="293" y="216" font-size="5.5" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">ROLE_USER</text>
-          <circle cx="348" cy="213" r="3" fill="#34d399"/>
-
-          <text x="204" y="228" font-size="5.5" fill="#8899bb" font-family="sans-serif">/admin/**</text>
-          <rect x="270" y="221" width="46" height="9" rx="3" fill="rgba(248,113,113,.1)"/>
-          <text x="293" y="228" font-size="5.5" fill="#f87171" text-anchor="middle" font-family="sans-serif">ROLE_ADMIN</text>
-          <circle cx="348" cy="225" r="3" fill="#34d399"/>
-
-          <text x="204" y="240" font-size="5.5" fill="#8899bb" font-family="sans-serif">/auth/**</text>
-          <rect x="270" y="233" width="46" height="9" rx="3" fill="rgba(52,211,153,.1)"/>
-          <text x="293" y="240" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">permitAll</text>
-          <circle cx="348" cy="237" r="3" fill="#34d399"/>
+          <!-- 하단 페이지네이션 + 카운트 -->
+          <rect x="8" y="213" width="364" height="1" fill="#e0e0e0"/>
+          <text x="14" y="225" font-size="5.5" fill="#888" font-family="sans-serif">총 4,821건</text>
+          <rect x="148" y="216" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="155" y="223" font-size="6" fill="#999" text-anchor="middle" font-family="sans-serif">«</text>
+          <rect x="164" y="216" width="14" height="10" rx="2" fill="#1565c0"/>
+          <text x="171" y="223" font-size="6" fill="#fff" text-anchor="middle" font-family="sans-serif">1</text>
+          <rect x="180" y="216" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="187" y="223" font-size="6" fill="#555" text-anchor="middle" font-family="sans-serif">2</text>
+          <rect x="196" y="216" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="203" y="223" font-size="6" fill="#555" text-anchor="middle" font-family="sans-serif">3</text>
+          <rect x="216" y="216" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="223" y="223" font-size="6" fill="#999" text-anchor="middle" font-family="sans-serif">»</text>
+          <!-- 하단 상태바 -->
+          <rect x="0" y="228" width="380" height="32" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+          <text x="14" y="239" font-size="5.5" fill="#888" font-family="sans-serif">납품완료</text>
+          <rect x="50" y="232" width="30" height="8" rx="4" fill="#e8f5e9"/>
+          <text x="65" y="238" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">3,501건</text>
+          <text x="86" y="239" font-size="5.5" fill="#888" font-family="sans-serif">처리중</text>
+          <rect x="106" y="232" width="24" height="8" rx="4" fill="#fff3e0"/>
+          <text x="118" y="238" font-size="5" fill="#e65100" text-anchor="middle" font-family="sans-serif">987건</text>
+          <text x="136" y="239" font-size="5.5" fill="#888" font-family="sans-serif">반품</text>
+          <rect x="152" y="232" width="24" height="8" rx="4" fill="#fce4ec"/>
+          <text x="164" y="238" font-size="5" fill="#c62828" text-anchor="middle" font-family="sans-serif">333건</text>
+          <text x="320" y="239" font-size="5.5" fill="#bbb" font-family="sans-serif">Last updated: 2024-12-04 09:32</text>
         </svg>
       </div>
       <div class="card-info">
