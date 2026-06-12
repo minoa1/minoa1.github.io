@@ -157,17 +157,53 @@
     /* ── SVG UI MOCKUPS ── */
     .mockup { width:100%; max-width:380px; border-radius:10px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.5); }
 
-    /* ── SKILLS ── */
-    .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:1rem; }
-    .skill-card {
-      background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.3rem;
-      transition:border-color .2s;
+    /* ── RETROSPECTIVE ── */
+    .retro-wrap { padding: 0 2.5rem 6rem; max-width: 1100px; margin: 0 auto; }
+    .retro-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2rem;
     }
-    .skill-card:hover { border-color:var(--border2); }
-    .skill-card-title { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--accent2); margin-bottom:.9rem; }
-    .skill-item { display:flex; align-items:center; gap:.6rem; margin-bottom:.55rem; }
-    .skill-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-    .skill-name { font-size:.875rem; color:var(--muted); }
+    .retro-badge {
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent2); background: rgba(129,140,248,.08);
+      border: 1px solid rgba(129,140,248,.2); padding: .25rem .8rem; border-radius: 999px;
+    }
+    .retro-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .retro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+    .retro-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem;
+      transition: border-color .2s;
+    }
+    .retro-card:hover { border-color: rgba(129,140,248,.3); }
+    .retro-card-num {
+      font-size: .7rem; font-weight: 800; color: var(--accent2); letter-spacing: .1em;
+      text-transform: uppercase; margin-bottom: .6rem;
+    }
+    .retro-card-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+    .retro-block { margin-bottom: .9rem; }
+    .retro-block-label {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: .4rem; display: flex; align-items: center; gap: .4rem;
+    }
+    .retro-block-label.problem { color: var(--red); }
+    .retro-block-label.cause { color: var(--yellow); }
+    .retro-block-label.solution { color: var(--green); }
+    .retro-block-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .retro-block p { font-size: .85rem; color: var(--muted); line-height: 1.75; }
+    .retro-learned {
+      background: var(--card); border: 1px solid rgba(129,140,248,.2);
+      border-radius: 12px; padding: 1.6rem;
+      display: grid; grid-template-columns: auto 1fr; gap: 1rem 1.5rem; align-items: start;
+    }
+    .retro-learned-icon {
+      font-size: 1.5rem; line-height: 1; padding-top: .1rem;
+    }
+    .retro-learned-title { font-size: .85rem; font-weight: 700; color: var(--accent2); margin-bottom: .5rem; }
+    .retro-learned p { font-size: .875rem; color: var(--muted); line-height: 1.8; }
+    @media (max-width: 700px) {
+      .retro-grid { grid-template-columns: 1fr; }
+      .retro-wrap { padding-left: 1.2rem; padding-right: 1.2rem; }
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -346,95 +382,101 @@
           <circle cx="16" cy="18" r="5" fill="#f87171" opacity=".7"/>
           <circle cx="30" cy="18" r="5" fill="#fbbf24" opacity=".7"/>
           <circle cx="44" cy="18" r="5" fill="#34d399" opacity=".7"/>
-          <text x="170" y="23" font-size="9" fill="#60728f" text-anchor="middle" font-family="sans-serif">OMS - 주문관리시스템</text>
+          <text x="170" y="23" font-size="9" fill="#60728f" text-anchor="middle" font-family="sans-serif">OMS — Login &amp; Auth</text>
 
-          <!-- left sidebar nav -->
-          <rect x="0" y="36" width="60" height="224" fill="#0a1120"/>
-          <text x="30" y="58" font-size="7" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">OMS</text>
-          <rect x="8" y="66" width="44" height="22" rx="5" fill="#1a3050"/>
-          <text x="30" y="81" font-size="7" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">주문조회</text>
-          <rect x="8" y="93" width="44" height="22" rx="5" fill="transparent"/>
-          <text x="30" y="108" font-size="7" fill="#60728f" text-anchor="middle" font-family="sans-serif">재고조회</text>
-          <rect x="8" y="120" width="44" height="22" rx="5" fill="transparent"/>
-          <text x="30" y="135" font-size="7" fill="#60728f" text-anchor="middle" font-family="sans-serif">프로모션</text>
-          <rect x="8" y="147" width="44" height="22" rx="5" fill="transparent"/>
-          <text x="30" y="162" font-size="7" fill="#60728f" text-anchor="middle" font-family="sans-serif">VOC</text>
-          <rect x="8" y="174" width="44" height="22" rx="5" fill="transparent"/>
-          <text x="30" y="189" font-size="7" fill="#60728f" text-anchor="middle" font-family="sans-serif">권한관리</text>
+          <!-- ── Login form (left half) ── -->
+          <!-- login card -->
+          <rect x="14" y="44" width="170" height="206" rx="8" fill="#131f35"/>
+          <text x="99" y="66" font-size="9" fill="#e8edf5" text-anchor="middle" font-family="sans-serif" font-weight="bold">OMS 로그인</text>
+          <text x="99" y="78" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">깨끗한나라 주문관리시스템</text>
 
-          <!-- main content -->
-          <!-- search bar -->
-          <rect x="68" y="44" width="298" height="22" rx="5" fill="#131f35"/>
-          <text x="78" y="58" font-size="7" fill="#3a5070" font-family="sans-serif">🔍  주문번호 / 업체명 검색...</text>
-          <rect x="338" y="46" width="22" height="18" rx="4" fill="#38bdf8" opacity=".8"/>
-          <text x="349" y="58" font-size="7" fill="#071522" text-anchor="middle" font-family="sans-serif">검색</text>
+          <!-- email field -->
+          <text x="22" y="96" font-size="6" fill="#60728f" font-family="sans-serif">아이디</text>
+          <rect x="22" y="100" width="154" height="16" rx="4" fill="#0f1d32" stroke="#1e3050" stroke-width="1"/>
+          <text x="30" y="112" font-size="6.5" fill="#3a5070" font-family="sans-serif">user@kkn.co.kr</text>
 
-          <!-- KPI row -->
-          <rect x="68" y="72" width="68" height="38" rx="5" fill="#131f35"/>
-          <text x="102" y="85" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">총 주문</text>
-          <text x="102" y="99" font-size="12" fill="#38bdf8" text-anchor="middle" font-family="sans-serif" font-weight="bold">4,821</text>
+          <!-- pw field -->
+          <text x="22" y="126" font-size="6" fill="#60728f" font-family="sans-serif">비밀번호</text>
+          <rect x="22" y="130" width="154" height="16" rx="4" fill="#0f1d32" stroke="#38bdf8" stroke-width="1"/>
+          <text x="30" y="142" font-size="6.5" fill="#8899bb" font-family="sans-serif">●●●●●●●●</text>
 
-          <rect x="142" y="72" width="68" height="38" rx="5" fill="#131f35"/>
-          <text x="176" y="85" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">처리완료</text>
-          <text x="176" y="99" font-size="12" fill="#34d399" text-anchor="middle" font-family="sans-serif" font-weight="bold">4,503</text>
+          <!-- login btn -->
+          <rect x="22" y="154" width="154" height="18" rx="5" fill="#38bdf8"/>
+          <text x="99" y="166" font-size="7.5" fill="#071522" text-anchor="middle" font-family="sans-serif" font-weight="bold">로그인</text>
 
-          <rect x="216" y="72" width="68" height="38" rx="5" fill="#131f35"/>
-          <text x="250" y="85" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">대기</text>
-          <text x="250" y="99" font-size="12" fill="#fbbf24" text-anchor="middle" font-family="sans-serif" font-weight="bold">318</text>
+          <!-- divider -->
+          <line x1="22" y1="182" x2="176" y2="182" stroke="#1e3050" stroke-width="1"/>
+          <text x="99" y="179" font-size="6" fill="#1e3050" text-anchor="middle" font-family="sans-serif" font-weight="bold">  또는  </text>
 
-          <rect x="290" y="72" width="76" height="38" rx="5" fill="#131f35"/>
-          <text x="328" y="85" font-size="6.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">재고 로스율</text>
-          <text x="328" y="99" font-size="12" fill="#f87171" text-anchor="middle" font-family="sans-serif" font-weight="bold">2.3%</text>
+          <!-- KCP btn -->
+          <rect x="22" y="187" width="154" height="18" rx="5" fill="transparent" stroke="#818cf8" stroke-width="1"/>
+          <text x="99" y="199" font-size="7" fill="#818cf8" text-anchor="middle" font-family="sans-serif">본인인증 (KCP)</text>
 
-          <!-- order table -->
-          <rect x="68" y="116" width="298" height="130" rx="6" fill="#131f35"/>
-          <text x="78" y="129" font-size="7" fill="#8899bb" font-family="sans-serif">주문 목록</text>
-          <!-- excel upload btn -->
-          <rect x="316" y="120" width="42" height="14" rx="4" fill="rgba(52,211,153,.15)"/>
-          <text x="337" y="130" font-size="6" fill="#34d399" text-anchor="middle" font-family="sans-serif">엑셀업로드</text>
+          <!-- JWT badge -->
+          <rect x="22" y="214" width="60" height="14" rx="7" fill="rgba(56,189,248,.1)" stroke="rgba(56,189,248,.3)" stroke-width="1"/>
+          <text x="52" y="224" font-size="6" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">JWT Token</text>
+          <rect x="90" y="214" width="86" height="14" rx="7" fill="rgba(52,211,153,.08)" stroke="rgba(52,211,153,.25)" stroke-width="1"/>
+          <text x="133" y="224" font-size="6" fill="#34d399" text-anchor="middle" font-family="sans-serif">● 인증 서버 정상</text>
 
-          <!-- table header -->
-          <rect x="68" y="136" width="298" height="14" fill="#0f1d32"/>
-          <text x="78" y="146" font-size="6" fill="#60728f" font-family="sans-serif">주문번호</text>
-          <text x="140" y="146" font-size="6" fill="#60728f" font-family="sans-serif">업체명</text>
-          <text x="210" y="146" font-size="6" fill="#60728f" font-family="sans-serif">품목</text>
-          <text x="270" y="146" font-size="6" fill="#60728f" font-family="sans-serif">수량</text>
-          <text x="310" y="146" font-size="6" fill="#60728f" font-family="sans-serif">상태</text>
+          <!-- ── KCP popup flow (right half) ── -->
+          <text x="200" y="52" font-size="7.5" fill="#818cf8" font-family="sans-serif" font-weight="bold">KCP 본인인증 팝업 구조</text>
 
-          <!-- rows -->
-          <rect x="68" y="150" width="298" height="14" fill="rgba(56,189,248,.04)"/>
-          <text x="78" y="160" font-size="6" fill="#8899bb" font-family="sans-serif">ORD-20241201</text>
-          <text x="140" y="160" font-size="6" fill="#8899bb" font-family="sans-serif">홈플러스</text>
-          <text x="210" y="160" font-size="6" fill="#8899bb" font-family="sans-serif">깨끗한나라 A4</text>
-          <text x="270" y="160" font-size="6" fill="#8899bb" font-family="sans-serif">500박스</text>
-          <rect x="305" y="153" width="28" height="9" rx="4" fill="rgba(52,211,153,.15)"/>
-          <text x="319" y="160" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">완료</text>
+          <!-- Parent page -->
+          <rect x="196" y="58" width="80" height="32" rx="5" fill="#131f35" stroke="#38bdf8" stroke-width="1"/>
+          <text x="236" y="72" font-size="6.5" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">Vue 부모 페이지</text>
+          <text x="236" y="82" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">본인인증 버튼</text>
 
-          <text x="78" y="175" font-size="6" fill="#8899bb" font-family="sans-serif">ORD-20241202</text>
-          <text x="140" y="175" font-size="6" fill="#8899bb" font-family="sans-serif">이마트</text>
-          <text x="210" y="175" font-size="6" fill="#8899bb" font-family="sans-serif">물티슈 Premium</text>
-          <text x="270" y="175" font-size="6" fill="#8899bb" font-family="sans-serif">1,200개</text>
-          <rect x="305" y="168" width="28" height="9" rx="4" fill="rgba(251,191,36,.15)"/>
-          <text x="319" y="175" font-size="5.5" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">처리중</text>
+          <!-- arrow down -->
+          <line x1="236" y1="90" x2="236" y2="102" stroke="#818cf8" stroke-width="1" stroke-dasharray="2,2"/>
+          <polygon points="231,100 236,108 241,100" fill="#818cf8"/>
 
-          <rect x="68" y="178" width="298" height="14" fill="rgba(56,189,248,.04)"/>
-          <text x="78" y="188" font-size="6" fill="#8899bb" font-family="sans-serif">ORD-20241203</text>
-          <text x="140" y="188" font-size="6" fill="#8899bb" font-family="sans-serif">롯데마트</text>
-          <text x="210" y="188" font-size="6" fill="#8899bb" font-family="sans-serif">화장지 30롤</text>
-          <text x="270" y="188" font-size="6" fill="#8899bb" font-family="sans-serif">300묶음</text>
-          <rect x="305" y="181" width="28" height="9" rx="4" fill="rgba(52,211,153,.15)"/>
-          <text x="319" y="188" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">완료</text>
+          <!-- External page -->
+          <rect x="196" y="108" width="80" height="32" rx="5" fill="#131f35" stroke="#818cf8" stroke-width="1.2"/>
+          <text x="236" y="120" font-size="6.5" fill="#818cf8" text-anchor="middle" font-family="sans-serif">외부 중간 페이지</text>
+          <text x="236" y="130" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">(팝업 제어 담당)</text>
 
-          <!-- paging -->
-          <text x="78" y="240" font-size="6.5" fill="#60728f" font-family="sans-serif">총 4,821건 | 1 / 483 페이지</text>
-          <rect x="280" y="232" width="16" height="12" rx="3" fill="#1a3050"/>
-          <text x="288" y="241" font-size="7" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">‹</text>
-          <rect x="300" y="232" width="16" height="12" rx="3" fill="#38bdf8" opacity=".8"/>
-          <text x="308" y="241" font-size="7" fill="#071522" text-anchor="middle" font-family="sans-serif">1</text>
-          <rect x="320" y="232" width="16" height="12" rx="3" fill="#1a3050"/>
-          <text x="328" y="241" font-size="7" fill="#8899bb" text-anchor="middle" font-family="sans-serif">2</text>
-          <rect x="340" y="232" width="16" height="12" rx="3" fill="#1a3050"/>
-          <text x="348" y="241" font-size="7" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">›</text>
+          <!-- arrow right to child -->
+          <line x1="276" y1="124" x2="288" y2="124" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2"/>
+          <polygon points="286,119 294,124 286,129" fill="#fbbf24"/>
+
+          <!-- Child KCP window -->
+          <rect x="294" y="108" width="76" height="46" rx="5" fill="#131f35" stroke="#fbbf24" stroke-width="1"/>
+          <text x="332" y="122" font-size="6.5" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">KCP 인증 창</text>
+          <text x="332" y="132" font-size="5.5" fill="#60728f" text-anchor="middle" font-family="sans-serif">(자식 팝업)</text>
+          <rect x="305" y="138" width="54" height="10" rx="3" fill="rgba(251,191,36,.15)"/>
+          <text x="332" y="146" font-size="5.5" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">JSP → Vue 재구성</text>
+
+          <!-- result callback arrow -->
+          <line x1="332" y1="154" x2="332" y2="168" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="332" y1="168" x2="236" y2="168" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="236" y1="168" x2="236" y2="158" stroke="#34d399" stroke-width="1" stroke-dasharray="2,2"/>
+          <polygon points="231,158 236,150 241,158" fill="#34d399"/>
+          <text x="290" y="165" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">인증 결과 콜백</text>
+
+          <!-- permission flow -->
+          <text x="200" y="184" font-size="7.5" fill="#38bdf8" font-family="sans-serif" font-weight="bold">권한 설정 구조</text>
+
+          <rect x="196" y="190" width="170" height="56" rx="6" fill="#0f1d32"/>
+          <!-- route table -->
+          <text x="204" y="202" font-size="6" fill="#60728f" font-family="sans-serif">경로</text>
+          <text x="276" y="202" font-size="6" fill="#60728f" font-family="sans-serif">필요 권한</text>
+          <text x="330" y="202" font-size="6" fill="#60728f" font-family="sans-serif">상태</text>
+          <line x1="196" y1="205" x2="366" y2="205" stroke="#1e3050" stroke-width="1"/>
+
+          <text x="204" y="216" font-size="5.5" fill="#8899bb" font-family="sans-serif">/order/**</text>
+          <rect x="270" y="209" width="46" height="9" rx="3" fill="rgba(56,189,248,.1)"/>
+          <text x="293" y="216" font-size="5.5" fill="#38bdf8" text-anchor="middle" font-family="sans-serif">ROLE_USER</text>
+          <circle cx="348" cy="213" r="3" fill="#34d399"/>
+
+          <text x="204" y="228" font-size="5.5" fill="#8899bb" font-family="sans-serif">/admin/**</text>
+          <rect x="270" y="221" width="46" height="9" rx="3" fill="rgba(248,113,113,.1)"/>
+          <text x="293" y="228" font-size="5.5" fill="#f87171" text-anchor="middle" font-family="sans-serif">ROLE_ADMIN</text>
+          <circle cx="348" cy="225" r="3" fill="#34d399"/>
+
+          <text x="204" y="240" font-size="5.5" fill="#8899bb" font-family="sans-serif">/auth/**</text>
+          <rect x="270" y="233" width="46" height="9" rx="3" fill="rgba(52,211,153,.1)"/>
+          <text x="293" y="240" font-size="5.5" fill="#34d399" text-anchor="middle" font-family="sans-serif">permitAll</text>
+          <circle cx="348" cy="237" r="3" fill="#34d399"/>
         </svg>
       </div>
       <div class="card-info">
@@ -442,22 +484,76 @@
         <h2 class="card-title">OMS 개발</h2>
         <p class="card-company">깨끗한나라</p>
         <ul class="card-features">
-          <li><strong>로그인·인증</strong> — JWT 토큰, KCP 본인인증 서비스 연동</li>
+          <li><strong>로그인·인증</strong> — JWT 토큰 발행, KCP 본인인증 서비스 연동</li>
+          <li><strong>권한 관리</strong> — 페이지별 접근 권한 정책 설계 및 적용</li>
           <li><strong>재고조회</strong> — 로스율 적용, 낱개 제품 수량맞춤 선출 로직</li>
-          <li><strong>권한·회원 관리</strong></li>
           <li><strong>프로모션 관리</strong> — 대용량 엑셀 업로드 성능 최적화</li>
           <li><strong>VOC 페이징 처리</strong> / WAR·JAR 배포 운영</li>
         </ul>
         <div class="tags">
           <span class="tag">Java</span><span class="tag">Spring Boot</span>
-          <span class="tag">JWT</span><span class="tag">Oracle</span>
-          <span class="tag">MyBatis</span><span class="tag">KCP API</span>
-          <span class="tag">Jenkins</span>
+          <span class="tag">JWT</span><span class="tag">Vue.js</span>
+          <span class="tag">Oracle</span><span class="tag">MyBatis</span>
+          <span class="tag">KCP API</span><span class="tag">Jenkins</span>
         </div>
       </div>
     </div>
 
-    <!-- 3. KT 마이데이터 -->
+  </div>
+</div>
+
+<!-- 깨끗한나라 회고 -->
+<div class="retro-wrap" id="retro-kkn">
+  <div class="retro-header">
+    <span class="retro-badge">Retrospective</span>
+    <span class="retro-title">깨끗한나라 OMS — 트러블슈팅 & 배운 점</span>
+  </div>
+
+  <div class="retro-grid">
+    <!-- Trouble 1 -->
+    <div class="retro-card">
+      <p class="retro-card-num">Trouble 01</p>
+      <h3 class="retro-card-title">토큰 발행 후 특정 페이지 접근 차단 문제</h3>
+      <div class="retro-block">
+        <p class="retro-block-label problem">문제</p>
+        <p>인증된 사용자임에도 특정 페이지 접근 시 차단되는 현상 발생. 로그인 자체는 정상 동작하지만 권한이 필요한 경로에서 접근이 거부됨.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label cause">원인</p>
+        <p>인증 토큰 검증은 정상적으로 수행되고 있었으나, 권한이 필요한 경로에 대한 접근 허용(permit) 설정이 라우팅 구성에서 누락되어 있었음.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label solution">해결</p>
+        <p>라우팅 및 권한 설정 구조를 전면 점검하고, 페이지별 접근 정책을 명확하게 재정의하여 적용. 단순 로그인 구현보다 권한 관리가 서비스 보안에 핵심적인 요소임을 인식.</p>
+      </div>
+    </div>
+
+    <!-- Trouble 2 -->
+    <div class="retro-card">
+      <p class="retro-card-num">Trouble 02</p>
+      <h3 class="retro-card-title">KCP 본인인증 JSP → Vue 전환 및 팝업 구조 개선</h3>
+      <div class="retro-block">
+        <p class="retro-block-label problem">문제</p>
+        <p>KCP 본인인증은 JSP 기반 예제 코드를 제공하고 있었으나 프로젝트는 Vue.js 환경. 기존 예제를 그대로 적용할 수 없었고, 부모 페이지에서 인증 창을 직접 제어하는 것도 불가능했음.</p>
+      </div>
+      <div class="retro-block">
+        <p class="retro-block-label solution">해결</p>
+        <p>인증 요청 및 결과 처리 흐름을 Vue 컴포넌트 구조에 맞게 재구성. 별도의 외부 중간 페이지를 생성하여 해당 페이지에서 실제 KCP 인증 자식 창을 호출하는 방식으로 팝업 구조를 개선.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 배운 점 -->
+  <div class="retro-learned">
+    <div class="retro-learned-icon">💡</div>
+    <div>
+      <p class="retro-learned-title">배운 점</p>
+      <p>단순 기능 구현을 넘어, 외부 인증 서비스 연동 시 기술 스택 차이로 인한 문제를 분석하고 해결하는 과정을 경험했다. 토큰 개발 시 보안 관점에서 시스템을 설계하는 중요성을 배웠고, 레거시 기반 솔루션을 현재 환경에 맞게 재구성하는 과정에서 문제 해결 능력과 서비스 연동 역량을 높일 수 있었다.</p>
+    </div>
+  </div>
+</div>
+
+<!--
     <div class="project-card">
       <div class="card-visual">
         <svg class="mockup" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
@@ -806,8 +902,7 @@
       </div>
     </div>
 
-  </div>
-</div>
+-->
 
 <!-- FOOTER -->
 <footer>
@@ -818,7 +913,7 @@
   </div>
 </footer>
 
-<a href="#hero" class="top-btn">↑</a>
+<a href="#projects" class="top-btn">↑</a>
 
 </body>
 </html>
