@@ -157,6 +157,29 @@
     /* ── SVG UI MOCKUPS ── */
     .mockup { width:100%; max-width:380px; border-radius:10px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.5); }
 
+    /* ── SLIDER ── */
+    .slider-wrap { position:relative; width:100%; max-width:380px; }
+    .slider-track { display:flex; transition:transform .35s ease; }
+    .slider-slide { min-width:100%; }
+    .slider-slide svg { width:100%; border-radius:10px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,.5); display:block; }
+    .slider-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:28px; height:28px; border-radius:50%;
+      background:rgba(15,23,42,.75); border:1px solid rgba(255,255,255,.15);
+      color:#e8edf5; font-size:.9rem; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:background .2s; z-index:10; user-select:none;
+    }
+    .slider-btn:hover { background:rgba(56,189,248,.5); }
+    .slider-btn.prev { left:-14px; }
+    .slider-btn.next { right:-14px; }
+    .slider-dots { display:flex; justify-content:center; gap:.4rem; margin-top:.8rem; }
+    .slider-dot {
+      width:6px; height:6px; border-radius:50%;
+      background:rgba(255,255,255,.2); cursor:pointer; transition:background .2s;
+    }
+    .slider-dot.active { background:var(--accent); }
+
     /* ── RETROSPECTIVE ── */
     .retro-wrap { padding: 0 2.5rem 6rem; max-width: 1100px; margin: 0 auto; }
     .retro-header {
@@ -376,7 +399,59 @@
     <!-- 2. 깨끗한나라 OMS -->
     <div class="project-card reverse">
       <div class="card-visual">
-        <svg class="mockup" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+        <div class="slider-wrap" id="oms-slider">
+          <div class="slider-track">
+
+            <!-- SLIDE 1: 로그인 화면 -->
+            <div class="slider-slide"><svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="380" height="260" rx="8" fill="#2a2a2a"/>
+          <rect width="380" height="28" rx="8" fill="#3a3a3a"/>
+          <rect y="14" width="380" height="14" fill="#3a3a3a"/>
+          <circle cx="14" cy="14" r="4" fill="#ff5f57"/>
+          <circle cx="26" cy="14" r="4" fill="#ffbd2e"/>
+          <circle cx="38" cy="14" r="4" fill="#28c840"/>
+          <rect x="54" y="6" width="110" height="16" rx="4" fill="#ffffff"/>
+          <text x="109" y="17" font-size="6" fill="#333" text-anchor="middle" font-family="sans-serif">깨끗한나라 OMS - 로그인</text>
+          <rect x="172" y="8" width="170" height="12" rx="6" fill="#4a4a4a"/>
+          <text x="257" y="17" font-size="6" fill="#aaa" text-anchor="middle" font-family="sans-serif">oms.kleannara.co.kr/login</text>
+          <!-- 페이지 배경 -->
+          <rect x="0" y="28" width="380" height="232" fill="#e8edf5"/>
+          <!-- 로그인 카드 중앙 배치 -->
+          <rect x="100" y="44" width="180" height="200" rx="8" fill="#fff" stroke="#dde3ee" stroke-width="1"/>
+          <!-- 상단 브랜드 -->
+          <rect x="100" y="44" width="180" height="42" rx="8" fill="#1565c0"/>
+          <rect x="100" y="72" width="180" height="14" fill="#1565c0"/>
+          <text x="190" y="62" font-size="10" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="bold">깨끗한나라</text>
+          <text x="190" y="78" font-size="6.5" fill="rgba(255,255,255,.8)" text-anchor="middle" font-family="sans-serif">주문관리시스템 (OMS)</text>
+          <!-- 아이디 -->
+          <text x="116" y="102" font-size="6" fill="#666" font-family="sans-serif">아이디</text>
+          <rect x="114" y="106" width="152" height="16" rx="4" fill="#f9f9f9" stroke="#ccc" stroke-width="1"/>
+          <text x="122" y="117" font-size="6.5" fill="#aaa" font-family="sans-serif">아이디를 입력하세요</text>
+          <!-- 비밀번호 -->
+          <text x="116" y="132" font-size="6" fill="#666" font-family="sans-serif">비밀번호</text>
+          <rect x="114" y="136" width="152" height="16" rx="4" fill="#f9f9f9" stroke="#1565c0" stroke-width="1.5"/>
+          <text x="122" y="147" font-size="7" fill="#555" font-family="sans-serif">●●●●●●●●</text>
+          <!-- 로그인 버튼 -->
+          <rect x="114" y="162" width="152" height="18" rx="4" fill="#1565c0"/>
+          <text x="190" y="174" font-size="7.5" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="bold">로그인</text>
+          <!-- 구분선 -->
+          <line x1="114" y1="190" x2="266" y2="190" stroke="#e0e0e0" stroke-width="1"/>
+          <rect x="176" y="184" width="28" height="12" rx="2" fill="#fff"/>
+          <text x="190" y="192" font-size="6" fill="#aaa" text-anchor="middle" font-family="sans-serif">또는</text>
+          <!-- 본인인증 버튼 -->
+          <rect x="114" y="196" width="152" height="16" rx="4" fill="#fff" stroke="#1565c0" stroke-width="1"/>
+          <text x="190" y="207" font-size="6.5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">본인인증으로 로그인 (KCP)</text>
+          <!-- 하단 안내 -->
+          <text x="190" y="232" font-size="5.5" fill="#aaa" text-anchor="middle" font-family="sans-serif">로그인에 어려움이 있으시면 관리자에게 문의하세요</text>
+          <!-- JWT 배지 -->
+          <rect x="114" y="218" width="50" height="10" rx="5" fill="#e3f2fd"/>
+          <text x="139" y="225" font-size="5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">JWT 인증</text>
+          <rect x="170" y="218" width="54" height="10" rx="5" fill="#e8f5e9"/>
+          <text x="197" y="225" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">● 서버 정상</text>
+            </svg></div>
+
+            <!-- SLIDE 2: 주문목록 -->
+            <div class="slider-slide"><svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
           <!-- 브라우저 외곽 -->
           <rect width="380" height="260" rx="8" fill="#2a2a2a"/>
           <!-- 브라우저 탭바 -->
@@ -530,7 +605,135 @@
           <rect x="152" y="232" width="24" height="8" rx="4" fill="#fce4ec"/>
           <text x="164" y="238" font-size="5" fill="#c62828" text-anchor="middle" font-family="sans-serif">333건</text>
           <text x="320" y="239" font-size="5.5" fill="#bbb" font-family="sans-serif">Last updated: 2024-12-04 09:32</text>
-        </svg>
+            </svg></div>
+
+            <!-- SLIDE 3: VOC 페이지 -->
+            <div class="slider-slide"><svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="380" height="260" rx="8" fill="#2a2a2a"/>
+          <rect width="380" height="28" rx="8" fill="#3a3a3a"/>
+          <rect y="14" width="380" height="14" fill="#3a3a3a"/>
+          <circle cx="14" cy="14" r="4" fill="#ff5f57"/>
+          <circle cx="26" cy="14" r="4" fill="#ffbd2e"/>
+          <circle cx="38" cy="14" r="4" fill="#28c840"/>
+          <rect x="54" y="6" width="110" height="16" rx="4" fill="#ffffff"/>
+          <text x="109" y="17" font-size="6" fill="#333" text-anchor="middle" font-family="sans-serif">깨끗한나라 OMS - VOC</text>
+          <rect x="172" y="8" width="170" height="12" rx="6" fill="#4a4a4a"/>
+          <text x="257" y="17" font-size="6" fill="#aaa" text-anchor="middle" font-family="sans-serif">oms.kleannara.co.kr/voc/list</text>
+          <rect x="0" y="28" width="380" height="232" fill="#f4f6f9"/>
+          <!-- 헤더 -->
+          <rect x="0" y="28" width="380" height="32" fill="#1565c0"/>
+          <text x="20" y="44" font-size="8.5" fill="#ffffff" font-family="sans-serif" font-weight="bold">깨끗한나라</text>
+          <text x="63" y="44" font-size="7" fill="rgba(255,255,255,.7)" font-family="sans-serif">주문관리시스템</text>
+          <text x="290" y="44" font-size="6.5" fill="rgba(255,255,255,.8)" font-family="sans-serif">관리자 홍길동</text>
+          <rect x="340" y="36" width="32" height="14" rx="3" fill="rgba(255,255,255,.15)"/>
+          <text x="356" y="45" font-size="6" fill="#fff" text-anchor="middle" font-family="sans-serif">로그아웃</text>
+          <!-- GNB -->
+          <rect x="0" y="60" width="380" height="22" fill="#1976d2"/>
+          <text x="14" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">주문관리</text>
+          <text x="68" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">재고조회</text>
+          <text x="118" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">프로모션</text>
+          <rect x="160" y="60" width="46" height="22" fill="rgba(0,0,0,.2)"/>
+          <text x="170" y="75" font-size="6.5" fill="#fff" font-family="sans-serif" font-weight="bold">VOC관리</text>
+          <text x="218" y="75" font-size="6.5" fill="rgba(255,255,255,.75)" font-family="sans-serif">권한관리</text>
+          <!-- 타이틀 -->
+          <text x="12" y="94" font-size="5.5" fill="#999" font-family="sans-serif">VOC관리 &gt; VOC목록</text>
+          <text x="12" y="105" font-size="9" fill="#222" font-family="sans-serif" font-weight="bold">VOC 목록</text>
+          <!-- 요약 카드 -->
+          <rect x="8" y="108" width="78" height="28" rx="4" fill="#fff" stroke="#e0e6ee" stroke-width="1"/>
+          <text x="20" y="119" font-size="5.5" fill="#888" font-family="sans-serif">전체</text>
+          <text x="20" y="130" font-size="9" fill="#1565c0" font-family="sans-serif" font-weight="bold">1,284</text>
+          <rect x="92" y="108" width="78" height="28" rx="4" fill="#fff" stroke="#e0e6ee" stroke-width="1"/>
+          <text x="104" y="119" font-size="5.5" fill="#888" font-family="sans-serif">접수</text>
+          <text x="104" y="130" font-size="9" fill="#e65100" font-family="sans-serif" font-weight="bold">42</text>
+          <rect x="176" y="108" width="78" height="28" rx="4" fill="#fff" stroke="#e0e6ee" stroke-width="1"/>
+          <text x="188" y="119" font-size="5.5" fill="#888" font-family="sans-serif">처리중</text>
+          <text x="188" y="130" font-size="9" fill="#fbbf24" font-family="sans-serif" font-weight="bold">18</text>
+          <rect x="260" y="108" width="112" height="28" rx="4" fill="#fff" stroke="#e0e6ee" stroke-width="1"/>
+          <text x="272" y="119" font-size="5.5" fill="#888" font-family="sans-serif">처리완료</text>
+          <text x="272" y="130" font-size="9" fill="#2e7d32" font-family="sans-serif" font-weight="bold">1,224</text>
+          <!-- 검색 -->
+          <rect x="8" y="140" width="364" height="22" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+          <text x="16" y="153" font-size="5.5" fill="#666" font-family="sans-serif">분류</text>
+          <rect x="30" y="144" width="50" height="12" rx="2" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+          <text x="55" y="152" font-size="5.5" fill="#aaa" text-anchor="middle" font-family="sans-serif">전체</text>
+          <text x="86" y="153" font-size="5.5" fill="#666" font-family="sans-serif">상태</text>
+          <rect x="100" y="144" width="50" height="12" rx="2" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+          <text x="125" y="152" font-size="5.5" fill="#aaa" text-anchor="middle" font-family="sans-serif">전체</text>
+          <text x="156" y="153" font-size="5.5" fill="#666" font-family="sans-serif">제목</text>
+          <rect x="172" y="144" width="110" height="12" rx="2" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+          <text x="227" y="152" font-size="5.5" fill="#bbb" text-anchor="middle" font-family="sans-serif">검색어를 입력하세요</text>
+          <rect x="288" y="144" width="30" height="12" rx="3" fill="#1565c0"/>
+          <text x="303" y="152" font-size="5.5" fill="#fff" text-anchor="middle" font-family="sans-serif">조회</text>
+          <!-- 테이블 헤더 -->
+          <rect x="8" y="165" width="364" height="13" fill="#e8edf5" stroke="#d0d7e3" stroke-width="1"/>
+          <text x="24" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">No</text>
+          <text x="65" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">분류</text>
+          <text x="140" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">제목</text>
+          <text x="234" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">등록자</text>
+          <text x="281" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">등록일</text>
+          <text x="348" y="174" font-size="5.5" fill="#444" text-anchor="middle" font-family="sans-serif">상태</text>
+          <!-- row 1 -->
+          <rect x="8" y="178" width="364" height="13" fill="#fff" stroke="#eee" stroke-width="1"/>
+          <text x="24" y="187" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">1284</text>
+          <rect x="40" y="180" width="40" height="9" rx="4" fill="#e3f2fd"/>
+          <text x="60" y="186" font-size="5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">배송문의</text>
+          <text x="100" y="187" font-size="5.5" fill="#1565c0" font-family="sans-serif">주문한 상품이 아직 도착하지 않았습니다</text>
+          <text x="234" y="187" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">이*영</text>
+          <text x="281" y="187" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2025-04-29</text>
+          <rect x="328" y="180" width="38" height="9" rx="4" fill="#fff3e0"/>
+          <text x="347" y="186" font-size="5" fill="#e65100" text-anchor="middle" font-family="sans-serif">처리중</text>
+          <!-- row 2 -->
+          <rect x="8" y="191" width="364" height="13" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+          <text x="24" y="200" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">1283</text>
+          <rect x="40" y="193" width="40" height="9" rx="4" fill="#fce4ec"/>
+          <text x="60" y="199" font-size="5" fill="#c62828" text-anchor="middle" font-family="sans-serif">품질불만</text>
+          <text x="100" y="200" font-size="5.5" fill="#1565c0" font-family="sans-serif">화장지 품질이 이전보다 떨어진 것 같습니다</text>
+          <text x="234" y="200" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">박*수</text>
+          <text x="281" y="200" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2025-04-28</text>
+          <rect x="328" y="193" width="38" height="9" rx="4" fill="#e8f5e9"/>
+          <text x="347" y="199" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">처리완료</text>
+          <!-- row 3 -->
+          <rect x="8" y="204" width="364" height="13" fill="#fff" stroke="#eee" stroke-width="1"/>
+          <text x="24" y="213" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">1282</text>
+          <rect x="40" y="206" width="40" height="9" rx="4" fill="#e8f5e9"/>
+          <text x="60" y="212" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">칭찬</text>
+          <text x="100" y="213" font-size="5.5" fill="#1565c0" font-family="sans-serif">물티슈 품질이 너무 좋아요. 계속 구매할게요!</text>
+          <text x="234" y="213" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">최*희</text>
+          <text x="281" y="213" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2025-04-27</text>
+          <rect x="328" y="206" width="38" height="9" rx="4" fill="#e8f5e9"/>
+          <text x="347" y="212" font-size="5" fill="#2e7d32" text-anchor="middle" font-family="sans-serif">처리완료</text>
+          <!-- row 4 -->
+          <rect x="8" y="217" width="364" height="13" fill="#fafafa" stroke="#eee" stroke-width="1"/>
+          <text x="24" y="226" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">1281</text>
+          <rect x="40" y="219" width="40" height="9" rx="4" fill="#e3f2fd"/>
+          <text x="60" y="225" font-size="5" fill="#1565c0" text-anchor="middle" font-family="sans-serif">교환요청</text>
+          <text x="100" y="226" font-size="5.5" fill="#1565c0" font-family="sans-serif">상품 수령 후 파손 확인, 교환 요청드립니다</text>
+          <text x="234" y="226" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">김*민</text>
+          <text x="281" y="226" font-size="5.5" fill="#555" text-anchor="middle" font-family="sans-serif">2025-04-26</text>
+          <rect x="328" y="219" width="38" height="9" rx="4" fill="#fff3e0"/>
+          <text x="347" y="225" font-size="5" fill="#e65100" text-anchor="middle" font-family="sans-serif">처리중</text>
+          <!-- 페이지네이션 -->
+          <rect x="8" y="231" width="364" height="1" fill="#e0e0e0"/>
+          <text x="14" y="245" font-size="5.5" fill="#888" font-family="sans-serif">총 1,284건</text>
+          <rect x="155" y="234" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="162" y="241" font-size="6" fill="#999" text-anchor="middle" font-family="sans-serif">«</text>
+          <rect x="171" y="234" width="14" height="10" rx="2" fill="#1565c0"/>
+          <text x="178" y="241" font-size="6" fill="#fff" text-anchor="middle" font-family="sans-serif">1</text>
+          <rect x="187" y="234" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="194" y="241" font-size="6" fill="#555" text-anchor="middle" font-family="sans-serif">2</text>
+          <rect x="203" y="234" width="14" height="10" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+          <text x="210" y="241" font-size="6" fill="#999" text-anchor="middle" font-family="sans-serif">»</text>
+            </svg></div>
+
+          </div><!-- /slider-track -->
+          <button class="slider-btn prev" onclick="omsSlide(-1)">&#8249;</button>
+          <button class="slider-btn next" onclick="omsSlide(1)">&#8250;</button>
+        </div><!-- /slider-wrap -->
+        <div class="slider-dots" id="oms-dots">
+          <div class="slider-dot active" onclick="omsGo(0)"></div>
+          <div class="slider-dot" onclick="omsGo(1)"></div>
+          <div class="slider-dot" onclick="omsGo(2)"></div>
+        </div>
       </div>
       <div class="card-info">
         <p class="card-period">2024.08 — 2025.04</p>
@@ -616,6 +819,17 @@
 </footer>
 
 <a href="#projects" class="top-btn">↑</a>
+
+<script>
+  let omsIdx = 0;
+  const omsTotal = 3;
+  function omsRender() {
+    document.querySelector('#oms-slider .slider-track').style.transform = `translateX(-${omsIdx * 100}%)`;
+    document.querySelectorAll('#oms-dots .slider-dot').forEach((d, i) => d.classList.toggle('active', i === omsIdx));
+  }
+  function omsSlide(dir) { omsIdx = (omsIdx + dir + omsTotal) % omsTotal; omsRender(); }
+  function omsGo(i) { omsIdx = i; omsRender(); }
+</script>
 
 </body>
 </html>
